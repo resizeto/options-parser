@@ -5,8 +5,8 @@ const crypto = require('crypto')
 class Parser {
   constructor (uri, token, signatureRequired) {
     this.uri = uri.replace(/^\//, '')
-    this.token = token || process.env.TOKEN
-    this.signatureRequired = signatureRequired || process.env.SIGNATURE_REQUIRED === '1'
+    this.token = token
+    this.signatureRequired = signatureRequired
     this.optionDelimiters = /[,]/
     this.compoundDelimiters = /[;]/
     this.keyValueDelimiters = /[_:=]/
