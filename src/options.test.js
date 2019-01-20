@@ -12,10 +12,13 @@ test('backgroundalpha', () => {
     'rgba(0, 0, 0, 0.5)'
   ]
   expect(options.options.backgroundalpha).toBe(1)
+  expect(options.backgroundalpha).toBe(1)
   values.forEach((val, index) => {
     options.backgroundalpha = val
     expect(options.options.backgroundalpha).toBe(expected[index])
+    expect(options.backgroundalpha).toBe(expected[index])
     expect(options.options.backgroundrgb).toBe(expectedRGB[index])
+    expect(options.backgroundrgb).toBe(expectedRGB[index])
   })
 })
 
@@ -23,10 +26,13 @@ test('backgroundcolor', () => {
   let options = new Options()
   let values = ['fff', 'ffffff']
   expect(options.options.backgroundcolor).toBe('#000')
+  expect(options.backgroundcolor).toBe('#000')
   values.forEach((val) => {
     options.backgroundcolor = val
     expect(options.options.backgroundcolor).toBe(`#${val}`)
+    expect(options.backgroundcolor).toBe(`#${val}`)
     expect(options.options.backgroundrgb).toBe('rgb(255, 255, 255)')
+    expect(options.backgroundrgb).toBe('rgb(255, 255, 255)')
   })
 })
 
@@ -41,6 +47,7 @@ test('blur', () => {
   values.forEach((val, index) => {
     options.blur = val
     expect(options.options.blur).toBe(expected[index])
+    expect(options.blur).toBe(expected[index])
   })
 })
 
@@ -52,6 +59,7 @@ test('fit', () => {
   values.forEach((val) => {
     options.fit = val
     expect(options.options.fit).toBe(val)
+    expect(options.fit).toBe(val)
   })
 })
 
@@ -63,6 +71,7 @@ test('gravity', () => {
   values.forEach((val) => {
     options.gravity = val
     expect(options.options.gravity).toBe(val)
+    expect(options.gravity).toBe(val)
   })
 })
 
@@ -74,6 +83,7 @@ test('height', () => {
   values.forEach((val, index) => {
     options.height = val
     expect(options.options.height).toBe(expected[index])
+    expect(options.height).toBe(expected[index])
   })
 })
 
@@ -85,6 +95,7 @@ test('left', () => {
   values.forEach((val, index) => {
     options.left = val
     expect(options.options.left).toBe(expected[index])
+    expect(options.left).toBe(expected[index])
   })
 })
 
@@ -96,6 +107,7 @@ test('mirror', () => {
   values.forEach((val) => {
     options.mirror = val
     expect(options.options.mirror).toBe(val)
+    expect(options.mirror).toBe(val)
   })
 })
 
@@ -107,6 +119,7 @@ test('output', () => {
   values.forEach((val) => {
     options.output = val
     expect(options.options.output).toBe(val)
+    expect(options.output).toBe(val)
   })
 })
 
@@ -120,6 +133,7 @@ test('quality', () => {
   values.forEach((val, index) => {
     options.quality = val
     expect(options.options.quality).toBe(expected[index])
+    expect(options.quality).toBe(expected[index])
   })
 })
 
@@ -131,6 +145,7 @@ test('rotate', () => {
   values.forEach((val, index) => {
     options.rotate = val
     expect(options.options.rotate).toBe(expected[index])
+    expect(options.rotate).toBe(expected[index])
   })
 })
 
@@ -142,6 +157,7 @@ test('top', () => {
   values.forEach((val, index) => {
     options.top = val
     expect(options.options.top).toBe(expected[index])
+    expect(options.top).toBe(expected[index])
   })
 })
 
@@ -152,6 +168,7 @@ test('version', () => {
   values.forEach((val) => {
     options.version = val
     expect(options.options.version).toBe(val)
+    expect(options.version).toBe(val)
   })
 })
 
@@ -163,5 +180,6 @@ test('width', () => {
   values.forEach((val, index) => {
     options.width = val
     expect(options.options.width).toBe(expected[index])
+    expect(options.width).toBe(expected[index])
   })
 })

@@ -5,6 +5,22 @@ const { OptionValueInvalidError } = require('./errors.js')
 class Options {
   constructor () {
     this.options = Object.assign({}, this.defaults)
+
+    const keys = Object.keys(this.options)
+
+    return new Proxy(this, {
+      get (target, name) {
+        if (keys.indexOf(name) !== -1) {
+          return Reflect.get(target, 'options')[name]
+        } else {
+          return target[name]
+        }
+      },
+
+      set (target, name, value) {
+        return Reflect.set(...arguments)
+      }
+    })
   }
 
   updateBackgroundRGB () {

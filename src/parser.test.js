@@ -83,6 +83,7 @@ test('multiple options without signature', () => {
 
     expected.forEach((expectedSetting) => {
       expect(parsedOptionsCollection.options[expectedSetting[0]]).toBe(expectedSetting[1])
+      expect(parsedOptionsCollection[expectedSetting[0]]).toBe(expectedSetting[1])
     })
   })
 })
@@ -110,6 +111,7 @@ test('multiple options with signature', () => {
 
     expected.forEach((expectedSetting) => {
       expect(parsedOptionsCollection.options[expectedSetting[0]]).toBe(expectedSetting[1])
+      expect(parsedOptionsCollection[expectedSetting[0]]).toBe(expectedSetting[1])
     })
   })
 })
@@ -148,6 +150,7 @@ test('compound options without signature', () => {
     parsedOptionsCollection.forEach((parsedOptions, index) => {
       expectedCollection[index].forEach((expectedSetting) => {
         expect(parsedOptions.options[expectedSetting[0]]).toBe(expectedSetting[1])
+        expect(parsedOptions[expectedSetting[0]]).toBe(expectedSetting[1])
       })
     })
   })
@@ -188,6 +191,7 @@ test('compound options with signature', () => {
     parsedOptionsCollection.forEach((parsedOptions, index) => {
       expectedCollection[index].forEach((expectedSetting) => {
         expect(parsedOptions.options[expectedSetting[0]]).toBe(expectedSetting[1])
+        expect(parsedOptions[expectedSetting[0]]).toBe(expectedSetting[1])
       })
     })
   })
