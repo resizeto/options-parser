@@ -1,6 +1,6 @@
 {
   "name": "@resize.to/options-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse transform options from a URL.",
   "author": "Brandon Aaron <hello.brandon@aaron.sh> (http://brandon.aaron.sh/)",
   "license": "MIT",
