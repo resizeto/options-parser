@@ -15,9 +15,9 @@ class Parser {
   }
 
   uriComponents () {
-    let components = this.uri.split('/')
+    const components = this.uri.split('/')
     this.optionsString = components.shift()
-    let signatureMatch = this.optionsString.match(this.signatureRegExp)
+    const signatureMatch = this.optionsString.match(this.signatureRegExp)
     if (signatureMatch) {
       this.signature = signatureMatch[1]
       this.optionsString = this.optionsString.replace(this.signatureRegExp, '')
@@ -32,22 +32,22 @@ class Parser {
     else if (this.signatureRequired) throw new SignatureMissingError('Signature not found')
 
     this.optionsCollection = this.optionsString.split(this.compoundDelimiters).map((optionsString) => {
-      let options = new Options()
+      const options = new Options()
       optionsString.split(this.optionDelimiters).map((optionString) => {
-        let [key, value] = optionString.split(this.keyValueDelimiters)
-        if (!options.options.hasOwnProperty(key)) throw new OptionKeyUnknownError(`${key} is not a known option`)
+        const [key, value] = optionString.split(this.keyValueDelimiters)
+        if (!options.hasOption(key)) throw new OptionKeyUnknownError(`${key} is not a known option`)
         options[key] = value
       })
-      return options
+      return options.options
     })
 
     return this.optionsCollection
   }
 
   verifySignature () {
-    let hmac = crypto.createHmac('sha1', this.token)
+    const hmac = crypto.createHmac('sha1', this.token)
     hmac.update(`${this.optionsString}/${this.path}`)
-    let signature = hmac.digest('hex')
+    const signature = hmac.digest('hex')
     if (this.signature !== signature) throw new SignatureMismatchError('Signature did not match')
   }
 }

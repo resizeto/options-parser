@@ -3,15 +3,16 @@ const { OptionValueInvalidError } = require('./errors.js')
 const Options = require('./options.js')
 
 test('backgroundalpha', () => {
-  let options = new Options()
-  let values = ['1', '0', '0.5']
-  let expected = [1.0, 0.0, 0.5]
-  let expectedRGB = [
+  const options = new Options()
+  const values = ['1', '0', '0.5']
+  const expected = [1.0, 0.0, 0.5]
+  const expectedRGB = [
     'rgb(0, 0, 0)',
     'rgba(0, 0, 0, 0)',
     'rgba(0, 0, 0, 0.5)'
   ]
   expect(options.options.backgroundalpha).toBe(1)
+  expect(options.backgroundalpha).toBe(1)
   expect(options.backgroundalpha).toBe(1)
   values.forEach((val, index) => {
     options.backgroundalpha = val
@@ -23,8 +24,8 @@ test('backgroundalpha', () => {
 })
 
 test('backgroundcolor', () => {
-  let options = new Options()
-  let values = ['fff', 'ffffff']
+  const options = new Options()
+  const values = ['fff', 'ffffff']
   expect(options.options.backgroundcolor).toBe('#000')
   expect(options.backgroundcolor).toBe('#000')
   values.forEach((val) => {
@@ -37,9 +38,9 @@ test('backgroundcolor', () => {
 })
 
 test('blur', () => {
-  let options = new Options()
-  let values = ['0.3', '100', '1000']
-  let expected = [0.3, 100, 1000]
+  const options = new Options()
+  const values = ['0.3', '100', '1000']
+  const expected = [0.3, 100, 1000]
   expect(options.options.blur).toBe(null)
   expect(() => { options.blur = '0' }).toThrow(OptionValueInvalidError)
   expect(() => { options.blur = '0.2' }).toThrow(OptionValueInvalidError)
@@ -52,8 +53,8 @@ test('blur', () => {
 })
 
 test('fit', () => {
-  let options = new Options()
-  let values = ['cover', 'contain', 'fill', 'inside', 'outside']
+  const options = new Options()
+  const values = ['cover', 'contain', 'fill', 'inside', 'outside']
   expect(options.options.fit).toBe('cover')
   expect(() => { options.fit = 'notvalid' }).toThrow(OptionValueInvalidError)
   values.forEach((val) => {
@@ -64,8 +65,8 @@ test('fit', () => {
 })
 
 test('gravity', () => {
-  let options = new Options()
-  let values = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest', 'center', 'entropy', 'attention']
+  const options = new Options()
+  const values = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest', 'center', 'entropy', 'attention']
   expect(options.options.gravity).toBe('center')
   expect(() => { options.gravity = 'notvalid' }).toThrow(OptionValueInvalidError)
   values.forEach((val) => {
@@ -76,9 +77,9 @@ test('gravity', () => {
 })
 
 test('height', () => {
-  let options = new Options()
-  let values = ['1', '100.25', '1000']
-  let expected = [1.0, 100.25, 1000]
+  const options = new Options()
+  const values = ['1', '100.25', '1000']
+  const expected = [1.0, 100.25, 1000]
   expect(options.options.height).toBe(null)
   values.forEach((val, index) => {
     options.height = val
@@ -88,9 +89,9 @@ test('height', () => {
 })
 
 test('left', () => {
-  let options = new Options()
-  let values = ['1', '100.25', '1000']
-  let expected = [1.0, 100.25, 1000]
+  const options = new Options()
+  const values = ['1', '100.25', '1000']
+  const expected = [1.0, 100.25, 1000]
   expect(options.options.left).toBe(null)
   values.forEach((val, index) => {
     options.left = val
@@ -100,8 +101,8 @@ test('left', () => {
 })
 
 test('mirror', () => {
-  let options = new Options()
-  let values = ['x', 'y']
+  const options = new Options()
+  const values = ['x', 'y']
   expect(options.options.mirror).toBe(null)
   expect(() => { options.mirror = 'a' }).toThrow(OptionValueInvalidError)
   values.forEach((val) => {
@@ -112,8 +113,8 @@ test('mirror', () => {
 })
 
 test('output', () => {
-  let options = new Options()
-  let values = ['jpeg', 'png', 'webp']
+  const options = new Options()
+  const values = ['jpeg', 'png', 'webp']
   expect(options.options.output).toBe(null)
   expect(() => { options.output = 'invalid' }).toThrow(OptionValueInvalidError)
   values.forEach((val) => {
@@ -124,9 +125,9 @@ test('output', () => {
 })
 
 test('quality', () => {
-  let options = new Options()
-  let values = ['1', '100', '50']
-  let expected = [1, 100, 50]
+  const options = new Options()
+  const values = ['1', '100', '50']
+  const expected = [1, 100, 50]
   expect(options.options.quality).toBe(80)
   expect(() => { options.quality = '0' }).toThrow(OptionValueInvalidError)
   expect(() => { options.quality = '101' }).toThrow(OptionValueInvalidError)
@@ -138,9 +139,9 @@ test('quality', () => {
 })
 
 test('rotate', () => {
-  let options = new Options()
-  let values = ['0', '-450', '10.5']
-  let expected = [0, -450.0, 10.5]
+  const options = new Options()
+  const values = ['0', '-450', '10.5']
+  const expected = [0, -450.0, 10.5]
   expect(options.options.rotate).toBe(null)
   values.forEach((val, index) => {
     options.rotate = val
@@ -150,9 +151,9 @@ test('rotate', () => {
 })
 
 test('top', () => {
-  let options = new Options()
-  let values = ['1', '100.25', '1000']
-  let expected = [1.0, 100.25, 1000]
+  const options = new Options()
+  const values = ['1', '100.25', '1000']
+  const expected = [1.0, 100.25, 1000]
   expect(options.options.top).toBe(null)
   values.forEach((val, index) => {
     options.top = val
@@ -162,8 +163,8 @@ test('top', () => {
 })
 
 test('version', () => {
-  let options = new Options()
-  let values = ['test', '3']
+  const options = new Options()
+  const values = ['test', '3']
   expect(options.options.version).toBe(null)
   values.forEach((val) => {
     options.version = val
@@ -173,13 +174,71 @@ test('version', () => {
 })
 
 test('width', () => {
-  let options = new Options()
-  let values = ['1', '100.25', '1000']
-  let expected = [1.0, 100.25, 1000]
+  const options = new Options()
+  const values = ['1', '100.25', '1000']
+  const expected = [1.0, 100.25, 1000]
   expect(options.options.width).toBe(null)
   values.forEach((val, index) => {
     options.width = val
     expect(options.options.width).toBe(expected[index])
     expect(options.width).toBe(expected[index])
+  })
+})
+
+test('defaults are frozen', () => {
+  const options = new Options()
+  expect(Object.isFrozen(options.defaults)).toBe(true)
+})
+
+test('options are frozen', () => {
+  const options = new Options()
+  expect(Object.isFrozen(options.options)).toBe(true)
+})
+
+test('hasOption', () => {
+  const options = new Options()
+  expect(options.hasOption('gravity')).toBe(true)
+  expect(options.hasOption('unknown')).toBe(false)
+})
+
+test('extendable', () => {
+  class MyOptions extends Options {
+    get defaults () {
+      return Object.freeze(Object.assign({}, super.defaults, {
+        text: '',
+        gravity: 'special'
+      }))
+    }
+
+    set text (value) {
+      this._options.text = value
+    }
+
+    set gravity (value) {
+      const valid = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest', 'center', 'entropy', 'attention', 'special']
+      if (valid.indexOf(value) === -1) throw new OptionValueInvalidError(`'${value}' is an invalid value for option 'gravity'`)
+      this._options.gravity = value
+    }
+  }
+
+  const options = new MyOptions()
+  const textValues = ['test', '3']
+  const gravityValues = ['north', 'special']
+
+  expect(options.hasOption('text')).toBe(true)
+  expect(options.options.text).toBe('')
+  expect(options.text).toBe('')
+  textValues.forEach((val) => {
+    options.text = val
+    expect(options.options.text).toBe(val)
+    expect(options.text).toBe(val)
+  })
+
+  expect(options.options.gravity).toBe('special')
+  expect(options.gravity).toBe('special')
+  gravityValues.forEach((val) => {
+    options.gravity = val
+    expect(options.options.gravity).toBe(val)
+    expect(options.gravity).toBe(val)
   })
 })
