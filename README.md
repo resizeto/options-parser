@@ -1,6 +1,7 @@
 # resize.to options parser
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/resizeto/options-parser.svg)](https://greenkeeper.io/)
+[![Coverage Status](https://coveralls.io/repos/github/resizeto/options-parser/badge.svg?branch=master)](https://coveralls.io/github/resizeto/options-parser?branch=master)
 
 Parses a URI fragment and returns a collection of options to pass along to a [transformer](https://github.com/resizeto/transformer). This is a building block for creating image transformation services.
 
