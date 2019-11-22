@@ -1,6 +1,6 @@
 {
   "name": "@resize.to/options-parser",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Parse image transform options from a URL.",
   "author": "Fresh Codes <hello@fresh.codes> (https://fresh.codes/)",
   "repository": "github:resizeto/options-parser",
