@@ -7,7 +7,7 @@ function sign (token, options, path) {
   const hmac = crypto.createHmac('sha1', token)
   hmac.update(`${options}/${path}`)
   const signature = hmac.digest('hex')
-  return `${options};signature:${signature}/${path}`
+  return `${options}-signature:${signature}/${path}`
 }
 
 const path = 'path/to/image.jpg'
@@ -61,7 +61,7 @@ test('invalid option value', () => {
 })
 
 test('optionsCollection is a collection of frozen objects', () => {
-  const parser = new Parser(`width:100;blur:0.3/${path}`)
+  const parser = new Parser(`width:100-blur:0.3/${path}`)
   const parsedOptionsCollection = parser.parse()
   expect(parsedOptionsCollection.length).toBe(2)
   expect(Object.isFrozen(parsedOptionsCollection[0])).toBe(true)
@@ -149,7 +149,7 @@ test('compound options without signature', () => {
   delimiters.forEach((delimiter) => {
     const options = optionsCollection.map((options) => {
       return options.map((option) => option.join('_')).join(',')
-    }).join(';')
+    }).join('-')
 
     const parser = new Parser(`${options}/${path}`)
     const parsedOptionsCollection = parser.parse()
@@ -188,7 +188,7 @@ test('compound options with signature', () => {
   delimiters.forEach((delimiter) => {
     const options = optionsCollection.map((options) => {
       return options.map((option) => option.join('_')).join(',')
-    }).join(';')
+    }).join('-')
 
     const uri = sign('123', options, path)
     const parser = new Parser(uri, '123', true)

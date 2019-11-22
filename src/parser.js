@@ -8,9 +8,9 @@ class Parser {
     this.token = token
     this.signatureRequired = signatureRequired
     this.optionDelimiters = /[,]/
-    this.compoundDelimiters = /[;]/
+    this.compoundDelimiters = /[-]/
     this.keyValueDelimiters = /[_:=]/
-    this.signatureRegExp = /[,;]signature[_:=]([\w\d]+)/
+    this.signatureRegExp = /[,-]signature[_:=]([\w\d]+)/
     this.optionsCollection = []
   }
 
